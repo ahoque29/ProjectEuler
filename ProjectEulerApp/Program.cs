@@ -6,7 +6,9 @@ namespace ProjectEulerApp
 	{
 		private static void Main(string[] args)
 		{
-			Console.WriteLine("Hello World!");
+			Euler _euler = new Euler();
+
+			Console.WriteLine(_euler.Problem2(2));
 		}
 	}
 }
