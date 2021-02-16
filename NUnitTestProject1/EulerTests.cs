@@ -25,5 +25,14 @@ namespace ProjectEulerTests
 		{
 			Assert.That(_euler.Problem2(input), Is.EqualTo(answer));
 		}
+
+		[TestCase(60, 5)]
+		[TestCase(13195, 29)]
+		[TestCase(600851475143, 6857)]
+		[TestCase(64, 2)]
+		public void Problem3ReturnsCorrectAnswer(long input, int answer)
+		{
+			Assert.That(_euler.Problem3(input), Is.EqualTo(answer));
+		}
 	}
 }

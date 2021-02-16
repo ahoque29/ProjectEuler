@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ProjectEulerApp
 {
@@ -57,6 +58,33 @@ namespace ProjectEulerApp
 			}
 			
 			return total;
+		}
+
+		// returns the largest prime factor of the given input
+		public int Problem3(long input)
+		{
+
+			// variable to store the latest prime extracted
+			var prime = 0;
+
+			// intermediary variable to hold in the input (not necessary but leads to readability)
+			var a = input;
+
+			// loop starts at 2 and computes a % i until it equals 0
+			// when it does, stores i into the the list, sets a to a / i and resets the counter to (i - 1) then continues the loop
+			// repeats until a = 1 which happens when a / i is computed when i = a
+			for (int i = 2; a != 1; i++)
+			{
+				if (a % i == 0)
+				{
+					prime = i;
+					a /= i;
+					i--;
+				}
+			}
+			
+			// the last prime extracted is the largest one
+			return prime;
 		}
 	}
 }
