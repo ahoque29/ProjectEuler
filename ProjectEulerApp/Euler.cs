@@ -4,10 +4,10 @@ using System.Linq;
 
 namespace ProjectEulerApp
 {
-	public class Euler
+	public static class Euler
 	{
 		// Sum of all natural numbers below input that are divisible by 3 or 5.
-		public int Problem1(int input)
+		public static int Problem1(int input)
 		{
 			var total = 0;
 
@@ -23,7 +23,7 @@ namespace ProjectEulerApp
 		}
 
 		// Sum of all even fibonacci numbers in a fibonacci sequence where last member is below input.
-		public int Problem2(int input)
+		public static int Problem2(int input)
 		{
 			// as the list is already populated by 1 and 2, if input is 1 , return results directly
 			if (input == 1)
@@ -61,7 +61,7 @@ namespace ProjectEulerApp
 		}
 
 		// returns the largest prime factor of the given input
-		public int Problem3(long input)
+		public static int Problem3(long input)
 		{
 
 			// variable to store the latest prime extracted

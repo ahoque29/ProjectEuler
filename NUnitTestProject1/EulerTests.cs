@@ -6,14 +6,13 @@ namespace ProjectEulerTests
 {
 	public class EulerTests
 	{
-		Euler _euler = new Euler();
 
 		[TestCase(10, 23)]
 		[TestCase(50, 543)]
 		[TestCase(1000, 233168)]
 		public void Problem1ReturnsCorrectAnswer(int input, int answer)
 		{
-			Assert.That(_euler.Problem1(input), Is.EqualTo(answer));
+			Assert.That(Euler.Problem1(input), Is.EqualTo(answer));
 		}
 
 		[TestCase(1, 0)]
@@ -23,7 +22,7 @@ namespace ProjectEulerTests
 		[TestCase(4000000, 4613732)]
 		public void Problem2ReturnsCorrectAnswer(int input, int answer)
 		{
-			Assert.That(_euler.Problem2(input), Is.EqualTo(answer));
+			Assert.That(Euler.Problem2(input), Is.EqualTo(answer));
 		}
 
 		[TestCase(60, 5)]
@@ -32,7 +31,7 @@ namespace ProjectEulerTests
 		[TestCase(64, 2)]
 		public void Problem3ReturnsCorrectAnswer(long input, int answer)
 		{
-			Assert.That(_euler.Problem3(input), Is.EqualTo(answer));
+			Assert.That(Euler.Problem3(input), Is.EqualTo(answer));
 		}
 	}
 }
