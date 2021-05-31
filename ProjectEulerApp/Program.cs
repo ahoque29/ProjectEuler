@@ -2,11 +2,11 @@
 
 namespace ProjectEulerApp
 {
-	internal class Program
+	class Program
 	{
-		private static void Main(string[] args)
+		private static void Main()
 		{
-			
+			Console.WriteLine(Euler.Problem4());
 		}
 	}
 }

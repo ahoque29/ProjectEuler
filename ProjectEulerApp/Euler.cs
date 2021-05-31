@@ -86,5 +86,56 @@ namespace ProjectEulerApp
 			// the last prime extracted is the largest one
 			return prime;
 		}
+
+		public static int Problem4()
+		{
+			// check that an integer is a palindrome
+			static bool PalindromeChecker(int integer)
+			{
+				// store integer as an array of digits
+				var digitArray = integer.ToString().ToCharArray();
+				var checkNumber = 0;
+
+				for (int i = 0; i <= digitArray.Length / 2; i++)
+				{
+					if (digitArray[i] != digitArray[digitArray.Length - 1 - i])
+					{
+						checkNumber++;
+					}
+				}
+
+				var check = true;
+
+				if (checkNumber > 0)
+				{
+					check = false;
+				}
+
+				return check;
+			}
+
+			// make a hashset of all the possible products of 3 digit numbers.
+			var products = new HashSet<int>();
+
+			for (int i = 100; i <= 999; i++)
+			{
+				for (int j = 100; j <= 999; j++)
+				{
+					products.Add(i * j);
+				}
+			}
+
+			var palindromes = new List<int>();
+
+			foreach (var integer in products)
+			{
+				if (PalindromeChecker(integer))
+				{
+					palindromes.Add(integer);
+				}
+			}
+
+			return palindromes.Max();
+		}
 	}
 }
