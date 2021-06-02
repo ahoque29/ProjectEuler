@@ -56,14 +56,13 @@ namespace ProjectEulerApp
 					total += m;
 				}
 			}
-			
+
 			return total;
 		}
 
 		// returns the largest prime factor of the given input
 		public static int Problem3(long input)
 		{
-
 			// variable to store the latest prime extracted
 			var prime = 0;
 
@@ -82,60 +81,75 @@ namespace ProjectEulerApp
 					i--;
 				}
 			}
-			
+
 			// the last prime extracted is the largest one
 			return prime;
 		}
 
-		public static int Problem4()
+		public static int Problem4(int numberOfDigits)
 		{
-			// check that an integer is a palindrome
-			static bool PalindromeChecker(int integer)
+			var palindromes = new HashSet<int>();
+
+			for (int i = (int)Math.Pow(10, numberOfDigits - 1); i <= (int)Math.Pow(10, numberOfDigits) - 1; i++)
 			{
-				// store integer as an array of digits
-				var digitArray = integer.ToString().ToCharArray();
+				for (int j = (int)Math.Pow(10, numberOfDigits - 1); j <= (int)Math.Pow(10, numberOfDigits) - 1; j++)
+				{
+					var product = i * j;
+					if (Enumerable.SequenceEqual(product.ToString(), product.ToString().Reverse()))
+					{
+						palindromes.Add(product);
+					}
+				}
+			}
+
+			return palindromes.Max();
+		}
+
+		public static int Problem5()
+		{
+			static bool DivideByOneThroughTwenty(int integer)
+			{
 				var checkNumber = 0;
 
-				for (int i = 0; i <= digitArray.Length / 2; i++)
+				for (int i = 1; i <= 20; i++)
 				{
-					if (digitArray[i] != digitArray[digitArray.Length - 1 - i])
+					if (integer % i != 0)
 					{
 						checkNumber++;
 					}
 				}
 
-				var check = true;
-
-				if (checkNumber > 0)
-				{
-					check = false;
-				}
-
-				return check;
+				return checkNumber == 0;
 			}
 
-			// make a hashset of all the possible products of 3 digit numbers.
-			var products = new HashSet<int>();
+			int result;
+			bool checker = false;
 
-			for (int i = 100; i <= 999; i++)
+			for (result = 20; !checker; result += 20)
 			{
-				for (int j = 100; j <= 999; j++)
-				{
-					products.Add(i * j);
-				}
+				checker = DivideByOneThroughTwenty(result);
 			}
 
-			var palindromes = new List<int>();
+			return result - 20;
+		}
 
-			foreach (var integer in products)
+		public static int Problem6(int integer)
+		{
+			int sum = 0;
+
+			for (int i = 1; i <= integer; i++)
 			{
-				if (PalindromeChecker(integer))
+				for (int j = 0; j <= integer; j++)
 				{
-					palindromes.Add(integer);
+					if (i != j)
+					{
+						sum += i * j;
+					}
 				}
 			}
 
-			return palindromes.Max();
+			return sum;
+			
 		}
 	}
 }

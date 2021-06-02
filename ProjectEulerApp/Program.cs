@@ -6,7 +6,7 @@ namespace ProjectEulerApp
 	{
 		private static void Main()
 		{
-			Console.WriteLine(Euler.Problem4());
+			Console.WriteLine(Euler.Problem6(100));
 		}
 	}
 }
